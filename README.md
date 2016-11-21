@@ -20,8 +20,22 @@ $ composer require ellipsesynergie/locale-to-csv
 ## Usage
 
 ``` php
+...
+```
+
+### Laravel
+
+First, add `EllipseSynergie\LocaleToCsv\LocaleToCsvServiceProvider::class` to `providers` of config file `app.php`. 
+
+#### Export
 
 ```
+php artisan lang:export-to-csv resources/lang/en/app.php resources/lang/en/app.csv --delimiter=";" --enclosure='"'
+```
+
+#### Import
+
+...
 
 ## Change log
 
