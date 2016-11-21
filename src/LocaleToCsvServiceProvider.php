@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use EllipseSynergie\LocaleToCsv\Commands\ExportCommand;
 use EllipseSynergie\LocaleToCsv\Commands\ImportCommand;
 
-class ServiceProvider extends ServiceProvider
+class LocaleToCsvServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
