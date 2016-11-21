@@ -1,4 +1,5 @@
-vendor/
-build/
-.idea/
+vendor
+build
+coverage
+.idea
 .DS_Store
