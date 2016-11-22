@@ -30,13 +30,17 @@ class ExportCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        // Which file need to be converted?
         $in = $input->getArgument('in');
+        // Define output file from input one...
         $out = str_replace('.php', '.yaml', $in);
 
+        //
         $output->writeln('Exporting ' . $in . ' to ' . $out);
 
+        // Get content from input file
         $strings = include($in);
-        $yaml = Yaml::dump($strings);
-        file_put_contents($out, $yaml);
+        // Output it to Yaml file...
+        file_put_contents($out, Yaml::dump($strings, 100, 4));
     }
 }

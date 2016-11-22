@@ -29,7 +29,15 @@ class ExportCommandTest extends \PHPUnit_Framework_TestCase
         // the output of the command in the console
         $output = $commandTester->getDisplay();
         $this->assertContains('Exporting tests/locale.php to tests/locale.yaml', $output);
-        $this->assertSame("foo: bar\n", file_get_contents('tests/locale.yaml'));
+
+        // validate content
+        $content = "foo: bar\n" .
+            "hello:\n" .
+            "    world: 'Hello world!'\n" .
+            "    number: 666\n" .
+            "    three:\n" .
+            "        four: five\n";
+        $this->assertSame($content, file_get_contents('tests/locale.yaml'));
 
         @unlink('tests/locale.yaml');
     }
