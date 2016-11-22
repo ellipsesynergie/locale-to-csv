@@ -36,9 +36,14 @@ class ExportCommandTest extends \PHPUnit_Framework_TestCase
             "    world: 'Hello world!'\n" .
             "    number: 666\n" .
             "    three:\n" .
-            "        four: five\n";
+            "        four: five\n" .
+            "    multi: |\n" .
+            "        This is a\n" .
+            "        multi line\n" .
+            "        sentence.\n";
         $this->assertSame($content, file_get_contents('tests/locale.yaml'));
 
+        // remove outputed file
         @unlink('tests/locale.yaml');
     }
 }

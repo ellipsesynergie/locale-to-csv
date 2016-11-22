@@ -41,6 +41,6 @@ class ExportCommand extends Command
         // Get content from input file
         $strings = include($in);
         // Output it to Yaml file...
-        file_put_contents($out, Yaml::dump($strings, 100, 4));
+        file_put_contents($out, Yaml::dump($strings, 100, 4, Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK));
     }
 }
