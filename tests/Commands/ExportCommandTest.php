@@ -44,7 +44,7 @@ class ExportCommandTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($content, file_get_contents('tests/export.yml'));
 
         // remove outputed file
-        @unlink('tests/export.yml');
+        unlink('tests/export.yml');
     }
 
     /**

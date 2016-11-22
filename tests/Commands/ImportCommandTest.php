@@ -52,7 +52,7 @@ class ImportCommandTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($content, file_get_contents('tests/import.php'));
 
         // remove outputed file
-        @unlink('tests/import.php');
+        unlink('tests/import.php');
     }
 
     /**
