@@ -73,7 +73,7 @@ class ImportCommandTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \EllipseSynergie\LocaleToYaml\Exceptions\FileNotFoundException
      */
-    public function testExportWithInvalidFilename()
+    public function testImportWithInvalidFilename()
     {
         $application = new Application();
         $application->add(new ImportCommand());
