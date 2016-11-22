@@ -35,7 +35,9 @@ php artisan lang:export-to-yaml resources/lang/en/app.php
 
 #### Import
 
-...
+```
+php artisan lang:import-from-yaml resources/lang/en/app.yml resources/lang/en/app.php
+```
 
 ## Change log
 
