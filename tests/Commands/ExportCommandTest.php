@@ -46,4 +46,35 @@ class ExportCommandTest extends \PHPUnit_Framework_TestCase
         // remove outputed file
         @unlink('tests/locale.yaml');
     }
+
+    /**
+     * @expectedException \Symfony\Component\Console\Exception\RuntimeException
+     */
+    public function testExportWithWrongArguments()
+    {
+        $application = new Application();
+        $application->add(new ExportCommand());
+
+        $command = $application->find('lang:export-to-yaml');
+        $commandTester = new CommandTester($command);
+        $commandTester->execute(array(
+            'command'  => $command->getName(),
+        ));
+    }
+
+    /**
+     * @expectedException \EllipseSynergie\LocaleToYaml\Exceptions\FileNotFoundException
+     */
+    public function testExportWithInvalidFilename()
+    {
+        $application = new Application();
+        $application->add(new ExportCommand());
+
+        $command = $application->find('lang:export-to-yaml');
+        $commandTester = new CommandTester($command);
+        $commandTester->execute(array(
+            'command'  => $command->getName(),
+            'in' => 'tests/foo.php'
+        ));
+    }
 }

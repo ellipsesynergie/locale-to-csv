@@ -2,11 +2,14 @@
 
 namespace EllipseSynergie\LocaleToYaml\Commands;
 
+use EllipseSynergie\LocaleToYaml\Exceptions\YamlException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Yaml\Yaml;
+use EllipseSynergie\LocaleToYaml\Exceptions\FileNotFoundException;
+use Symfony\Component\Yaml\Exception\DumpException;
 
 /**
  * Class ExportCommand
@@ -38,9 +41,21 @@ class ExportCommand extends Command
         //
         $output->writeln('Exporting ' . $in . ' to ' . $out);
 
-        // Get content from input file
-        $strings = include($in);
-        // Output it to Yaml file...
-        file_put_contents($out, Yaml::dump($strings, 100, 4, Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK));
+        //
+        if (!file_exists($in)) {
+            throw new FileNotFoundException("Cannot find file " . $in);
+        }
+
+        try {
+
+            // Get content from input file
+            $strings = include($in);
+            // Output it to Yaml file...
+            file_put_contents($out, Yaml::dump($strings, 100, 4, Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK));
+
+        } catch (DumpException $e) {
+
+            throw new YamlException("Not able to convert input file to Yaml.");
+        }
     }
 }
