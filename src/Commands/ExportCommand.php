@@ -1,16 +1,16 @@
 <?php
 
-namespace EllipseSynergie\LocaleToCsv\Commands;
+namespace EllipseSynergie\LocaleToYaml\Commands;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
-use Illuminate\Support\Arr;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class ExportCommand
- * @package EllipseSynergie\LocaleToCsv\Commands
+ * @package EllipseSynergie\LocaleToYaml\Commands
  */
 class ExportCommand extends Command
 {
@@ -18,13 +18,10 @@ class ExportCommand extends Command
      */
     protected function configure()
     {
-        $this->setName('lang:export-to-csv')
-            ->setDescription('Export locale file to CSV.')
-            ->setHelp("This command allows you to export a lang file to comma-separated values...")
-            ->addArgument('in', InputArgument::REQUIRED, 'The input filename.')
-            ->addArgument('out', InputArgument::REQUIRED, 'The output filename.')
-            ->addArgument('delimiter', InputArgument::OPTIONAL, 'The CSV delimiter (default is ;)', ';')
-            ->addArgument('enclosure', InputArgument::OPTIONAL, 'The CSV enclosure (default is ")', '"');
+        $this->setName('lang:export-to-yaml')
+            ->setDescription('Export locale file to Yaml.')
+            ->setHelp("This command allows you to export a locale file from PHP to Yaml...")
+            ->addArgument('in', InputArgument::REQUIRED, 'The input filename.');
     }
 
     /**
@@ -34,19 +31,12 @@ class ExportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $in = $input->getArgument('in');
-        $out = $input->getArgument('out');
-        $delimiter = $input->getArgument('delimiter');
-        $enclosure = $input->getArgument('enclosure');
+        $out = str_replace('.php', '.yaml', $in);
 
         $output->writeln('Exporting ' . $in . ' to ' . $out);
 
-        $outputFile = fopen($out, 'w');
-        $strings = Arr::dot(include($in));
-
-        foreach ($strings as $key => $string) {
-            fputcsv($outputFile, [$key, $string], $delimiter, $enclosure);
-        }
-
-        fclose($outputFile);
+        $strings = include($in);
+        $yaml = Yaml::dump($strings);
+        file_put_contents($out, $yaml);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace EllipseSynergie\LocaleToCsv\Commands;
+namespace EllipseSynergie\LocaleToYaml\Commands;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 
 /**
  * Class ImportCommand
- * @package EllipseSynergie\LocaleToCsv\Commands
+ * @package EllipseSynergie\LocaleToYaml\Commands
  */
 class ImportCommand extends Command
 {

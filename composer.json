@@ -1,12 +1,12 @@
 {
-    "name": "ellipsesynergie/locale-to-csv",
+    "name": "ellipsesynergie/locale-to-yaml",
     "type": "library",
     "description": "",
     "keywords": [
         "ellipsesynergie",
-        "locale-to-csv"
+        "locale-to-yaml"
     ],
-    "homepage": "https://github.com/ellipsesynergie/locale-to-csv",
+    "homepage": "https://github.com/ellipsesynergie/locale-to-yaml",
     "license": "MIT",
     "authors": [
         {
@@ -23,7 +23,7 @@
     "require": {
         "php" : "~5.6|~7.0",
         "symfony/console": "^3.1",
-        "illuminate/support": "^5.3"
+        "symfony/yaml": "^3.1"
 
     },
     "require-dev": {
@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "EllipseSynergie\\LocaleToCsv\\": "src"
+            "EllipseSynergie\\LocaleToYaml\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "EllipseSynergie\\LocaleToCsv\\": "tests"
+            "EllipseSynergie\\LocaleToYaml\\": "tests"
         }
     },
     "scripts": {

@@ -1,4 +1,4 @@
-# Locale to CSV
+# Locale to Yaml
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -7,14 +7,14 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This package provides artisan commands to import and export language files from and to CSV. 
+This package provides artisan commands to export language files from PHP to Yaml. Then, import it back to PHP. 
 
 ## Install
 
 Via Composer
 
 ``` bash
-$ composer require ellipsesynergie/locale-to-csv
+$ composer require ellipsesynergie/locale-to-yaml
 ```
 
 ## Usage
@@ -25,12 +25,12 @@ $ composer require ellipsesynergie/locale-to-csv
 
 ### Laravel
 
-First, add `EllipseSynergie\LocaleToCsv\LocaleToCsvServiceProvider::class` to `providers` of config file `app.php`. 
+First, add `EllipseSynergie\LocaleToYaml\LocaleToYamlServiceProvider::class` to `providers` of config file `app.php`. 
 
 #### Export
 
 ```
-php artisan lang:export-to-csv resources/lang/en/app.php resources/lang/en/app.csv --delimiter=";" --enclosure='"'
+php artisan lang:export-to-yaml resources/lang/en/app.php
 ```
 
 #### Import
@@ -62,17 +62,17 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/ellipsesynergie/locale-to-csv.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/ellipsesynergie/locale-to-yaml.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/ellipsesynergie/locale-to-csv/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/ellipsesynergie/locale-to-csv.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/ellipsesynergie/locale-to-csv.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/ellipsesynergie/locale-to-csv.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/ellipsesynergie/locale-to-yaml/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/ellipsesynergie/locale-to-yaml.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/ellipsesynergie/locale-to-yaml.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/ellipsesynergie/locale-to-yaml.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/ellipsesynergie/locale-to-csv
-[link-travis]: https://travis-ci.org/ellipsesynergie/locale-to-csv
-[link-scrutinizer]: https://scrutinizer-ci.com/g/ellipsesynergie/locale-to-csv/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/ellipsesynergie/locale-to-csv
-[link-downloads]: https://packagist.org/packages/ellipsesynergie/locale-to-csv
+[link-packagist]: https://packagist.org/packages/ellipsesynergie/locale-to-yaml
+[link-travis]: https://travis-ci.org/ellipsesynergie/locale-to-yaml
+[link-scrutinizer]: https://scrutinizer-ci.com/g/ellipsesynergie/locale-to-yaml/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/ellipsesynergie/locale-to-yaml
+[link-downloads]: https://packagist.org/packages/ellipsesynergie/locale-to-yaml
 [link-author]: https://github.com/ellipsesynergie
 [link-contributors]: ../../contributors

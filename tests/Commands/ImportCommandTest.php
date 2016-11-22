@@ -1,8 +1,8 @@
 <?php
 
-namespace EllipseSynergie\LocaleToCsv\Tests\Commands;
+namespace EllipseSynergie\LocaleToYaml\Tests\Commands;
 
-use EllipseSynergie\LocaleToCsv\Commands\ImportCommand;
+use EllipseSynergie\LocaleToYaml\Commands\ImportCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\Console\Application;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace EllipseSynergie\LocaleToCsv\Tests\Commands;
+namespace EllipseSynergie\LocaleToYaml\Tests\Commands;
 
-use EllipseSynergie\LocaleToCsv\Commands\ExportCommand;
+use EllipseSynergie\LocaleToYaml\Commands\ExportCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\Console\Application;
 
@@ -19,19 +19,18 @@ class ExportCommandTest extends \PHPUnit_Framework_TestCase
         $application = new Application();
         $application->add(new ExportCommand());
 
-        $command = $application->find('lang:export-to-csv');
+        $command = $application->find('lang:export-to-yaml');
         $commandTester = new CommandTester($command);
         $commandTester->execute(array(
             'command'  => $command->getName(),
-            'in' => 'tests/locale.php',
-            'out' => 'tests/locale.csv',
+            'in' => 'tests/locale.php'
         ));
 
         // the output of the command in the console
         $output = $commandTester->getDisplay();
-        $this->assertContains('Exporting tests/locale.php to tests/locale.csv', $output);
-        $this->assertSame("foo;bar\n", file_get_contents('tests/locale.csv'));
+        $this->assertContains('Exporting tests/locale.php to tests/locale.yaml', $output);
+        $this->assertSame("foo: bar\n", file_get_contents('tests/locale.yaml'));
 
-        @unlink('tests/locale.csv');
+        @unlink('tests/locale.yaml');
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace EllipseSynergie\LocaleToCsv;
+namespace EllipseSynergie\LocaleToYaml;
 
 use Illuminate\Support\ServiceProvider;
-use EllipseSynergie\LocaleToCsv\Commands\ExportCommand;
-use EllipseSynergie\LocaleToCsv\Commands\ImportCommand;
+use EllipseSynergie\LocaleToYaml\Commands\ExportCommand;
+use EllipseSynergie\LocaleToYaml\Commands\ImportCommand;
 
-class LocaleToCsvServiceProvider extends ServiceProvider
+class LocaleToYamlServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
