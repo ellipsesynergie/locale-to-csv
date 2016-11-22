@@ -23,12 +23,12 @@ class ExportCommandTest extends \PHPUnit_Framework_TestCase
         $commandTester = new CommandTester($command);
         $commandTester->execute(array(
             'command'  => $command->getName(),
-            'in' => 'tests/locale.php'
+            'in' => 'tests/export.php'
         ));
 
         // the output of the command in the console
         $output = $commandTester->getDisplay();
-        $this->assertContains('Exporting tests/locale.php to tests/locale.yaml', $output);
+        $this->assertContains('Exporting tests/export.php to tests/export.yml', $output);
 
         // validate content
         $content = "foo: bar\n" .
@@ -41,10 +41,10 @@ class ExportCommandTest extends \PHPUnit_Framework_TestCase
             "        This is a\n" .
             "        multi line\n" .
             "        sentence.\n";
-        $this->assertSame($content, file_get_contents('tests/locale.yaml'));
+        $this->assertSame($content, file_get_contents('tests/export.yml'));
 
         // remove outputed file
-        @unlink('tests/locale.yaml');
+        @unlink('tests/export.yml');
     }
 
     /**

@@ -24,7 +24,7 @@ class ExportCommand extends Command
         $this->setName('lang:export-to-yaml')
             ->setDescription('Export locale file to Yaml.')
             ->setHelp("This command allows you to export a locale file from PHP to Yaml...")
-            ->addArgument('in', InputArgument::REQUIRED, 'The input filename.');
+            ->addArgument('in', InputArgument::REQUIRED, 'The locale input filename.');
     }
 
     /**
@@ -36,12 +36,10 @@ class ExportCommand extends Command
         // Which file need to be converted?
         $in = $input->getArgument('in');
         // Define output file from input one...
-        $out = str_replace('.php', '.yaml', $in);
+        $out = str_replace('.php', '.yml', $in);
 
-        //
         $output->writeln('Exporting ' . $in . ' to ' . $out);
 
-        //
         if (!file_exists($in)) {
             throw new FileNotFoundException("Cannot find file " . $in);
         }

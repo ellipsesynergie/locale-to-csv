@@ -1,0 +1,10 @@
+foo: bar
+hello:
+    world: 'Hello world!'
+    number: 666
+    three:
+        four: five
+    multi: |
+        This is a
+        multi line
+        sentence.
